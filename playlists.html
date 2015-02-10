@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lystr | Playlists</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+	</head>
+	<body>
+		<div class="login_register"><a href="#">Login</a> | <a href="#">Register</a></div>
+		<div class="little_logo_div"><a href="index.html"><img class="little_logo" src="Little-Lystr-Logo.gif" alt="little logo"><h3 class="little_logo_title">Lystr | Share Playlists</h3></a></div>
+		<h1 id="playlistTitle">Playlists:</h1>
+		<script>
+			$.getJSON("playlists.js", function(data) {
+				var items = [];
+				$.each( data, function(key, val) {
+// 				items.push("<a href='playlist_" + key + ".html'><li id='" + key + "' class='playlist'>" + val + "</li></a>");
+				items.push("<a href='#'><li id='" + key + "' class='playlist'>" + val + "</li></a>");
+				});
+ 
+				$("<ul/>", {
+					"class": "playlistList",
+					html: items.join("")
+					}).appendTo("body");
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,118 @@
+* {
+	font-family: "Avenir", sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+body {
+	background-color: #14a79d;
+	color: black;
+	padding-bottom: 20px;
+}
+
+#home_logo {
+	margin-left: auto;
+	margin-right: auto;
+	width: 25%;
+	height: auto;
+	clear: right;
+	display: block;
+}
+
+.search {
+	height: 2em;
+	width: 20%;
+	max-width: 22%;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 10px;
+}
+
+.login_register {
+	font-size: large;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+a {
+	background-color: transparent;
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	border-bottom: 1px dotted black;
+}
+
+.little_logo_div {
+	float: left;
+	display: inline;
+	margin-left: 10px;
+	margin-top: 10px;
+	text-align: left;
+}
+
+.little_logo_div a:hover {
+	border: none;
+}
+
+.little_logo_title {
+	display: inline;
+	vertical-align: top;
+	text-align: left;
+}
+
+.little_logo {
+	display: inline;
+	width: 10%;
+	margin-right: 10px;
+}
+
+#playlistTitle {
+	clear: both;
+}
+
+.playlist {
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+	background-color: #ffcd6f;
+	color: black;
+	border: 3px solid orange;
+	border-radius: 5px;
+	width: 60%;
+	min-width: inherit;
+	height: 30px;
+	list-style: none;
+}
+
+button {
+	padding: 3px;
+}
+
+input {
+	border: none;
+	border-radius: 3px;
+	height: 1.75em;
+	max-width: 300px;
+	width: 30%;
+}
+
+.add_playlist {
+	text-align: left;
+	padding-left: 3px;
+}
+
+#add_status {
+	clear: both;
+}
+
+.x_delete {
+	float: right;
+	vertical-align: top;
+	font-size: small;
+	padding-right: 4px;
+	position: relative;
+}
