@@ -5,6 +5,14 @@
 	text-align: center;
 }
 
+::-moz-selection {
+	background: #ffda94;
+}
+
+::selection {
+	background: #ffda94;
+}
+
 body {
 	background-color: #14a79d;
 	color: black;

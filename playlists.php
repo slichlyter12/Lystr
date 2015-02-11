@@ -1,7 +1,6 @@
 <?php
 
-	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "lichlyts-db", "yIXE9YLgTUnUSnZ1", "lichlyts-db");
-// 	$mysqli = new mysqli("127.0.0.1", "root", "", "lystr");
+	include_once 'dbconnect.php';
 	
 	if ($mysqli->connect_errno) {
 		die("Failed to connect to server with error: ".$mysqli->connect_errno);
