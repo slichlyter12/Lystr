@@ -4,8 +4,6 @@
 	
 	$title = "Register";
 	
-	
-	
 	if (isset($_POST["username"])) {
 		
 		require_once 'vendor/ircmaxell/password-compat/lib/password.php';
@@ -55,7 +53,7 @@
 		$query = "INSERT INTO users (username, password, email) VALUES ('".$username."', '".$hashed_pass."', '".$email."')";
 		if (mysqli_query($mysqli, $query)) {
 			echo "<h2>Successfully registered!</h2>";
-			echo "<a href='index.php'>Login</a>";
+			echo "<a href='login.php'>Login</a>";
 		} else {
 			die( "<h2>An unexpected error occurred</h2>" );
 		}

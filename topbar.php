@@ -1,7 +1,7 @@
 <?php
 	
 	if (isset($_SESSION["username"])) {
-		$login_msg = "Welcome,".$_SESSION['username']." | <a href='logout.php'>Logout</a>";
+		$login_msg = "Welcome, ".$_SESSION['username']." | <a href='logout.php'>Logout</a>";
 	} else {
 		$login_msg = "<a href='login.php'>Login</a> | <a href='register.php'>Register</a>";
 	}

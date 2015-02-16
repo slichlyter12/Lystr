@@ -31,7 +31,7 @@
 			//now redirect user
 			header("Location: index.php");
 		} else {
-			echo "<h2>Oops! That username and password combination was not found.<br>Please try again.</h2>";
+			die( "<h2>Oops! That username and password combination was not found.<br>Please try again.</h2>" );
 		}
 	}	
 	
