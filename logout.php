@@ -5,9 +5,9 @@
 	session_start();
 	session_destroy();
 	if (isset($_SESSION['username'])) {
-		$msg = "You are now logged out";
+		$msg = "<h2>You are now logged out</h2>";
 	} else {
-		$msg = "<h2>Could not log you out</h2>";
+		$msg = "<h2>You are not logged in</h2>";
 	}
 	
 ?>

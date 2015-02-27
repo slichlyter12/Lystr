@@ -12,8 +12,6 @@
 		header("Location: error.php");
 	}
 	
-	include_once 'dbconnect.php';
-	
 ?>
 <!DOCTYPE html>
 <html>

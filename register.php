@@ -6,7 +6,7 @@
 	
 	if (isset($_POST["username"])) {
 		
-		require_once 'vendor/ircmaxell/password-compat/lib/password.php';
+		require_once 'password.php';
 		include_once 'dbconnect.php';
 		
 		$username = strip_tags($_POST["username"]);
