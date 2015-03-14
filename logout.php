@@ -1,13 +1,18 @@
-<?php
+<?php	
+	
+	session_start();
 	
 	$title = "Logout";
 	
-	session_start();
+	//delete files and logout
+	require_once 'recursiveRemove.php';
+	recursiveRemove("./temp/".$_SESSION['username']);
 	session_destroy();
+	
 	if (isset($_SESSION['username'])) {
 		$msg = "<h2>You are now logged out</h2>";
 	} else {
-		$msg = "<h2>You are not logged in</h2>";
+		$msg = "<h2>Could not log you out</h2>";
 	}
 	
 ?>

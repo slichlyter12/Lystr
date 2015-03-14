@@ -28,8 +28,16 @@
 			$_SESSION['username'] = $username;
 			$_SESSION['id'] = $uid;
 			
+			mkdir("./temp/".$_SESSION['username'], 0777, true);
+			$playlist_filepath = "./temp/".$_SESSION['username']."/playlists.js";
+			$file = fopen($playlist_filepath, 'w');
+			if (!$file) {
+				die("Could not create file");
+			}
+			fclose($file);
+			
 			//now redirect user
-			header("Location: index.php");
+			header("Location: user.php");
 		} else {
 			die( "<h2>Oops! That username and password combination was not found.<br>Please try again.</h2>" );
 		}

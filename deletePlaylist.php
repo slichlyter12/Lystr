@@ -13,10 +13,6 @@
 			
 			include_once 'dbconnect.php';
 			
-			if ($mysqli->connect_errno) {
-				die("Failed to connect to server with error: ".$mysqli->connect_errno);
-			}
-			
 			$name = $_GET["playlist_name"];
 			$id = $_GET["id"];
 		

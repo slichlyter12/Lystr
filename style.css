@@ -78,11 +78,11 @@ a:hover {
 	margin-right: 10px;
 }
 
-#playlistTitle {
+.pageTitle {
 	clear: both;
 }
 
-.playlist {
+.data_block {
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 10px;

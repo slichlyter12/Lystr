@@ -1,13 +1,13 @@
+<?php session_start(); $title = "Upload Playlist"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Upload Playlist</title>
+		<title>Lystr | <?php echo $title; ?></title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<div class="login_register"><a href="#">Login</a> | <a href="#">Register</a></div>
-		<div class="little_logo_div"><a href="playlists.php"><img class="little_logo" src="Little-Lystr-Logo.gif" alt="little logo"><h3 class="little_logo_title">Lystr | Share Playlists</h3></a></div>
+		<?php include 'topbar.php'; ?>
 		<br><br>
 		<?php
 			
@@ -19,7 +19,7 @@
 			
 			$playlist_name = htmlspecialchars($_GET["playlist_name"]);
 			
-			if ($playlist_name == "") {
+			if ($playlist_name."" == "") {
 				die("Insufficient playlist name");
 			}
 			
@@ -39,7 +39,7 @@
 			
 			$id += 1;
 		
-			if ($mysqli->query("INSERT INTO playlists (id, name) VALUES ('$id', '$playlist_name')")) {
+			if ($mysqli->query("INSERT INTO playlists (id, name, user) VALUES ('$id', '$playlist_name', 'GLOBAL')")) {
 				echo "<p id='add_status'>Successfully added $playlist_name to Lystr!</p>";
 			} else {
 				echo "<p id='add_status'>Oops! Something went wrong :(</p>";

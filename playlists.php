@@ -24,13 +24,13 @@
 	<body>
 		<?php include("topbar.php"); ?>
 		<div class="content">
-			<h1 id="playlistTitle">Playlists:</h1>
+			<h1 class="pageTitle">Playlists:</h1>
 			<?php
 			
 				echo "<ul class='playlistList'>\n";
-				if ($result = $mysqli->query("SELECT id, name FROM playlists")) {
+				if ($result = $mysqli->query("SELECT id, name FROM playlists WHERE user='GLOBAL'")) {
 					while ($obj = $result->fetch_object()) {
-						echo "<a href='#'><li id='".htmlspecialchars($obj->id)."' class='playlist'>".htmlspecialchars($obj->name)."<a href='deletePlaylist.php?id=".htmlspecialchars($obj->id)."&playlist_name=".htmlspecialchars($obj->name)."' class='x_delete'>&times;</a></li></a>\n";
+						echo "<a href='#'><li id='".htmlspecialchars($obj->id)."' class='data_block'>".htmlspecialchars($obj->name)."<a href='deletePlaylist.php?id=".htmlspecialchars($obj->id)."&playlist_name=".htmlspecialchars($obj->name)."' class='x_delete'>&times;</a></li></a>\n";
 					}
 					
 					$result->close();
