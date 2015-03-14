@@ -12,11 +12,9 @@
 			
 			$name = $_FILES['file']['name'];
 			$ext = $_FILES['file']['type'];
-			
-			if ($ext != "audio/x-mpegurl") {
-				echo "$name is not an accepted playlist file<br>";
-				echo "Please make sure the playlist file ends with .m3u";
-			} else {
+						
+			if ($ext == "audio/x-mpegurl" || $ext == "audio/mpegurl") {
+				
 				$ext = "m3u";
 				$title = strip_tags($_POST["title"]);
 				$title = mysqli_real_escape_string($mysqli, $title);
@@ -37,6 +35,12 @@
 				} else {
 					die("<h2>An unexpected error occurred</h2>");
 				}
+				
+			} else {
+				
+				echo "$name is not an accepted playlist file<br>";
+				echo "Please make sure the playlist file ends with .m3u";
+				
 			}
 			
 		}

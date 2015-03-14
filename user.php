@@ -24,7 +24,7 @@
 		<?php include("topbar.php"); ?>
 		<h1 class="pageTitle"><?php echo $_SESSION["username"]; ?></h1>
 		
-		<a href="uploadPlaylist.php">Upload New Playlist</a>
+		<a href="uploadPlaylist.php">Upload New Playlist</a><br><br>
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
