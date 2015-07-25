@@ -2,11 +2,15 @@
 	
 	session_start();
 	
-	if (!isset($_SESSION["username"])) {
+	include('dbconnect.php');
+	
+	if (isset($_SESSION['username'])) {
+		$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['username']));
+	} else {
 		header("Location: error.php");
 	}
-		
-	$title = $_SESSION["username"]."'s Playlists";
+			
+	$title = "$username's Playlists";
 	
 	include 'buildUsersPlaylists.php';
 	
@@ -28,7 +32,7 @@
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$.getJSON("./temp/<?php echo $_SESSION['username']; ?>/playlists.js", function(data) {
+				$.getJSON("./temp/<?php echo $username; ?>/playlists.js", function(data) {
 					var items = [];
 					$.each(data, function(key, val) {
 						items.push("<a href='#'><li id='" + key + "' class='data_block'>" + data[key]['name'] + "</li></a>");

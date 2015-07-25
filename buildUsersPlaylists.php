@@ -2,13 +2,15 @@
 	
 	include_once 'dbconnect.php';
 	
-	$result = mysqli_query($mysqli, "SELECT * FROM playlists WHERE user='".$_SESSION['username']."'");
+	$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['username']));
+	
+	$result = mysqli_query($mysqli, "SELECT * FROM playlists WHERE user='$username'");
 	$rows = array();
 	while ($row = mysqli_fetch_assoc($result)) {
 		$rows[] = $row;
 	}
 	
-	$filename = "./temp/".$_SESSION['username']."/playlists.js";
+	$filename = "./temp/$username/playlists.js";
 	$file = fopen($filename, 'w');
 	
 	if (!$file) {

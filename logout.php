@@ -2,14 +2,19 @@
 	
 	session_start();
 	
+	include('dbconnect.php');
+	
 	$title = "Logout";
+	if (isset($_SESSION['username'])) {
+		$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['username']));	
+	}
 	
 	//delete files and logout
 	require_once 'recursiveRemove.php';
-	recursiveRemove("./temp/".$_SESSION['username']);
+	recursiveRemove("./temp/$username");
 	session_destroy();
 	
-	if (isset($_SESSION['username'])) {
+	if (isset($username)) {
 		$msg = "<h2>You are now logged out</h2>";
 	} else {
 		$msg = "<h2>Could not log you out</h2>";

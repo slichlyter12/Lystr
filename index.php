@@ -8,6 +8,22 @@
 		$login_msg = "<a href='login.php'>Login</a> | <a href='register.php'>Register</a>";
 	}
 	
+	if (isset($_GET["user"])) {
+		
+		include_once 'dbconnect.php';
+		
+		$findUser = strip_tags($_GET["user"]);
+		$findUser = mysqli_real_escape_string($mysqli, $findUser);
+		
+		$result = mysqli_query($mysqli, "SELECT username, id FROM users where username='$findUser' LIMIT 1");
+		$rows = array();
+		while ($row = mysqli_fetch_assoc($result)) {
+			$rows[] = $row;
+		}
+		
+		
+	}
+	
 ?>
 <!DOCTYPE html>
 <html>
