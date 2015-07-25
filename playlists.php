@@ -7,6 +7,7 @@
 	if (isset($_SESSION["username"])) {
 		
 		include_once 'dbconnect.php';
+		$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['username']));
 		
 	} else {
 		header("Location: error.php");

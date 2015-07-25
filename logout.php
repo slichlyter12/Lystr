@@ -2,7 +2,7 @@
 	
 	session_start();
 	
-	include('dbconnect.php');
+	include_once 'dbconnect.php';
 	
 	$title = "Logout";
 	if (isset($_SESSION['username'])) {

@@ -2,8 +2,11 @@
 	
 	session_start();
 	
+	include_once 'dbconnect.php';
+	
 	if (isset($_SESSION["username"])) {
-		$login_msg = "Welcome, <a href='user.php'>".$_SESSION['username']."</a> | <a href='logout.php'>Logout</a>";
+		$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['username']));
+		$login_msg = "Welcome, <a href='user.php'>$username</a> | <a href='logout.php'>Logout</a>";
 	} else {
 		$login_msg = "<a href='login.php'>Login</a> | <a href='register.php'>Register</a>";
 	}
@@ -12,8 +15,7 @@
 		
 		include_once 'dbconnect.php';
 		
-		$findUser = strip_tags($_GET["user"]);
-		$findUser = mysqli_real_escape_string($mysqli, $findUser);
+		$findUser = mysqli_real_escape_string($mysqli, strip_tags($_GET['user']));
 		
 		$result = mysqli_query($mysqli, "SELECT username, id FROM users where username='$findUser' LIMIT 1");
 		$rows = array();

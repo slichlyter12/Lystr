@@ -1,6 +1,9 @@
 <?php
 	
+	include_once 'dbconnect.php';
+	
 	if (isset($_SESSION["username"])) {
+		$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['username']));
 		$login_msg = "Welcome, <a href='user.php'>".$_SESSION['username']."</a> | <a href='logout.php'>Logout</a>";
 	} else {
 		$login_msg = "<a href='login.php'>Login</a> | <a href='register.php'>Register</a>";

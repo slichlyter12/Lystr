@@ -7,6 +7,7 @@
 	if(isset($_SESSION["username"])) {
 		
 		include_once 'dbconnect.php';
+		$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['username']));
 		
 		if($_FILES) {
 			
@@ -19,16 +20,16 @@
 				$title = strip_tags($_POST["title"]);
 				$title = mysqli_real_escape_string($mysqli, $title);
 				$n = $title.".$ext";
-				move_uploaded_file($_FILES['file']['tmp_name'], "temp/".$_SESSION['username']."/$n");
+				move_uploaded_file($_FILES['file']['tmp_name'], "temp/$username/$n");
 				
-				$result = mysqli_query($mysqli, "SELECT name FROM playlists WHERE name='$title' AND user='".$_SESSION['username']."'");
+				$result = mysqli_query($mysqli, "SELECT name FROM playlists WHERE name='$title' AND user='$username'");
 				$row = mysqli_fetch_row($result);
 				$dbname = $row[0];
 				if($title == $dbname) {
 					die("<h2>You already have a playlist with that name, please choose a new name or delete the old playlist</h2>");
 				}
 				
-				$query = "INSERT INTO playlists (name, user) VALUES ('$title','".$_SESSION['username']."')";
+				$query = "INSERT INTO playlists (name, user) VALUES ('$title','$username')";
 				if (mysqli_query($mysqli, $query)) {
 					echo "Uploaded $title successfully!<br>";
 					echo "<a href='user.php'>See my playlists</a>";

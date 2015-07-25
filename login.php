@@ -28,8 +28,8 @@
 			$_SESSION['username'] = $username;
 			$_SESSION['id'] = $uid;
 			
-			mkdir("./temp/".$_SESSION['username'], 0777, true);
-			$playlist_filepath = "./temp/".$_SESSION['username']."/playlists.js";
+			mkdir("./temp/$username", 0777, true);
+			$playlist_filepath = "./temp/$username/playlists.js";
 			$file = fopen($playlist_filepath, 'w');
 			if (!$file) {
 				die("Could not create file");

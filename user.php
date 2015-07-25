@@ -2,7 +2,7 @@
 	
 	session_start();
 	
-	include('dbconnect.php');
+	include_once 'dbconnect.php';
 	
 	if (isset($_SESSION['username'])) {
 		$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['username']));
